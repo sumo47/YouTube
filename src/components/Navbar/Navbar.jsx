@@ -7,7 +7,13 @@ import { IoMdNotificationsOutline } from 'react-icons/io'
 import { BiUserCircle } from 'react-icons/bi'
 
 function Navbar() {
-    const currentUser = null;
+    // const currentUser = null;
+    const currentUser = {
+        result: {
+            email: "sumit@gmail.com",
+            joinedOn: "2022-07-15T09:57:23.489Z"
+        }
+    }
     return (
         <div className='container_Navbar'>
             <div className="Burger_Logo_Navbar">
@@ -38,10 +44,22 @@ function Navbar() {
                 <p className='appBox'></p>
             </div>
             <IoMdNotificationsOutline size={22} className={'vid_bell_Navbar'} />
-            <div className="Auth_cont_Navbar">
-                <p className="Auth_Btn"><BiUserCircle size={22} />
-                <b>Sign in</b></p>
-            </div>
+            {currentUser ?
+                <>
+                    <div className='channel_logo_App'>
+                        <p className='fstChar_logo_App'>
+                            {currentUser?.result.name ?
+                                (<>{currentUser?.result.name.charAt(0).toUpperCase()}</>)
+                                :
+                                (<>{currentUser?.result.email.charAt(0).toUpperCase()}</>)}
+                        </p>
+                    </div>
+                </>
+                : <div className="Auth_cont_Navbar">
+                    <p className="Auth_Btn"><BiUserCircle size={22} />
+                        <b>Sign in</b>
+                    </p>
+                </div>}
         </div>
     )
 }
