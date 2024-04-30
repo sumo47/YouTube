@@ -1,5 +1,5 @@
 .container_Navbar {
-    border: 1px solid;
+    border: 1px solid blue;
     display: flex;
     height: calc(3.5rem-2px);
     background-color: #615cf0;
