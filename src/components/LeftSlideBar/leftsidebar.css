@@ -1,5 +1,6 @@
 .container_leftSideBar {
-    background-color: #3e38f2;
+    /* background-image: linear-gradient(90deg, #5170ff, #ff66c4); */
+    background-color: #435ed6;
     width: 4.5rem;
     height: calc(100vh - 3.55rem);
     box-sizing: border-box;
@@ -10,7 +11,7 @@
     width: 4.5rem;
     height: 4rem;
     cursor: pointer;
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -20,14 +21,14 @@
     /* margin: 0.5rem; */
 }
 
-.icon_sidebar {
-    /* margin: auto; */
-}
+/* .icon_sidebar {
+    margin: auto; 
+} */
 
 .text_sidebar_icon {
     text-align: center;
-    font-weight: 300;
-    font-size: 0.85rem;
+    /* font-weight: 300;
+    font-size: 0.85rem; */
     /* padding: 0.2rem; */
     /* padding-bottom: 1rem; */
     margin-top: 0.2rem;
@@ -37,5 +38,52 @@
 .icon_sidebar_div:hover,
 .icon_sidebar_div.active {
     color: aliceblue;
-    background-color: #615cf0;
+    /* background-image: linear-gradient(90deg, #5170ff, #ff66c4); */
+    background-color: rgb(197, 161, 190);
+
+}
+
+.container_DrawerLeftSidebar {
+    height: calc(100vh - 3.6rem);
+    position: absolute;
+    width: 100vw;
+    z-index: 500;
+}
+
+.container2_DrawerLeftSidebar {
+    /* background-image: linear-gradient(90deg, #5170ff, #ff66c4); */
+    background-color: #435ed6;
+    width: 15rem;
+    overflow-y: auto;
+
+}
+
+.Drawer_leftSidebar,
+.libraryBtn_DrawerleftSidebar {
+    padding-top: 0.5rem;
+    border-bottom: 2px solid rgba(225, 221, 221, 0.293);
+}
+
+.Drawer_icon_sidebar_div p {
+    display: flex;
+    margin: 0;
+}
+
+.Drawer_icon_sidebar_div {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.855);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.Drawer_icon_sidebar {
+    margin: auto;
+}
+.Drawer_text_sidebarIcon{
+    text-align: center;
+    /* font-weight: 300;
+    font-size: 0.85rem; */
+    padding: 0.2rem;
 }

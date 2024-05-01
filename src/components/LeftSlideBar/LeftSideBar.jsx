@@ -4,6 +4,7 @@ import { MdOutlineExplore} from 'react-icons/md'
 import { MdOutlineSubscriptions } from "react-icons/md";
 import { MdOutlineVideoLibrary } from "react-icons/md";
 import {NavLink} from 'react-router-dom'
+import sortIcon from './short.png'
 
 
 import './leftsidebar.css'
@@ -21,6 +22,11 @@ function LeftSideBar() {
             <div className="icon_sidebar_div">
                 <MdOutlineExplore size={22} className='icon_sidebar' />
                 <div className="text_sidebar_icon">Explore</div>
+
+            </div>
+            <div className="icon_sidebar_div">
+                <img src={sortIcon} width={22} className='icon_sidebar' />
+                <div className="text_sidebar_icon">Shorts</div>
 
             </div>
             <div className="icon_sidebar_div">

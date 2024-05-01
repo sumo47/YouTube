@@ -2,7 +2,7 @@
     border: 1px solid rgb(128, 128, 247);
     display: flex;
     height: calc(3.5rem-2px);
-    background-color: #3e38f2;
+    background-image: linear-gradient(90deg, #5170ff, #ff66c4);
     justify-content: space-between;
 }
 

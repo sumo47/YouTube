@@ -7,7 +7,7 @@ import SearchList from './SearchList'
 function SearchBar() {
     const [SearchQuery, setSearchQuery] = useState("")
     const [SearchListShow, setSearchListShow] = useState(false)
-    const SearchArray = ["the matrix", "superMan", "batman", "Wonder woman", "thor"].filter(item => item.toLowerCase().includes(SearchQuery.toLowerCase()))
+    const SearchArray = ["the matrix", "superMan", "batman", "Wonder woman", "thor", "Gagan", "sumit", "Abhishek"].filter(item => item.toLowerCase().includes(SearchQuery.toLowerCase()))
     return (
         <>
             <div className="SearchBar_Container">
