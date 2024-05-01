@@ -1,8 +1,8 @@
 .container_Navbar {
-    border: 1px solid blue;
+    border: 1px solid rgb(128, 128, 247);
     display: flex;
     height: calc(3.5rem-2px);
-    background-color: #615cf0;
+    background-color: #3e38f2;
     justify-content: space-between;
 }
 
@@ -33,6 +33,7 @@
 
 .logo_div_Navbar {
     display: flex;
+    text-decoration: none;
 }
 
 .logo_title_Navbar {
