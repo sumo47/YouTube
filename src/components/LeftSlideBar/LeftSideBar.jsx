@@ -25,7 +25,7 @@ function LeftSideBar() {
 
             </div>
             <div className="icon_sidebar_div">
-                <img src={sortIcon} width={22} className='icon_sidebar' />
+                <img src={sortIcon} width={22} className='icon_sidebar' alt='sort'/>
                 <div className="text_sidebar_icon">Shorts</div>
 
             </div>

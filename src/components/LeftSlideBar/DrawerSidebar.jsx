@@ -24,7 +24,7 @@ function DrawerSidebar() {
                     </div>
                     <div className="Drawer_icon_sidebar_div">
                         <p>
-                            <img src={shortIcon} width={22} className={"Drawer_icon_sidebar"} style={{ margin: "auto 0.7rem" }} />
+                            <img src={shortIcon} width={22} className={"Drawer_icon_sidebar"} style={{ margin: "auto 0.7rem" }} alt='sort' />
                             <div className="Drawer_text_sidebarIcon">Shorts</div>
                         </p>
                     </div>
