@@ -9,7 +9,7 @@ function SearchList({ SearchArray, setSearchQuery, setSearchListShow }) {
                 {SearchArray.map(item => {
                     return (<p className="titleItem" key={item} onClick={() => { setSearchQuery(item); setSearchListShow(false) }}>
                         <FaSearch className='ListSearchIcon' />
-                        <span className='ListItem'>                        {item}</span>
+                        <span className='ListItem'>{item}</span>
                     </p>)
                 })}
             </div>

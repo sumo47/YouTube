@@ -1,6 +1,8 @@
 .container_leftSideBar {
     /* background-image: linear-gradient(90deg, #5170ff, #ff66c4); */
-    background-color: #435ed6;
+    /* background-color: #435ed6; */
+    /* background-color: #2fb9f4; */
+    background-color: #4366ff;
     width: 4.5rem;
     height: calc(100vh - 3.55rem);
     box-sizing: border-box;
@@ -27,12 +29,17 @@
 
 .text_sidebar_icon {
     text-align: center;
+
     /* font-weight: 300;
     font-size: 0.85rem; */
     /* padding: 0.2rem; */
     /* padding-bottom: 1rem; */
     margin-top: 0.2rem;
 
+}
+
+.text_sidebar_icon span {
+    text-decoration: none;
 }
 
 .icon_sidebar_div:hover,
@@ -44,17 +51,19 @@
 }
 
 .container_DrawerLeftSidebar {
-    height: calc(100vh - 3.6rem);
     position: absolute;
+    display: flex;
     width: 100vw;
     z-index: 500;
 }
 
 .container2_DrawerLeftSidebar {
-    /* background-image: linear-gradient(90deg, #5170ff, #ff66c4); */
-    background-color: #435ed6;
-    width: 15rem;
+    height: calc(100vh - 3.6rem);
     overflow-y: auto;
+    /* background-image: linear-gradient(90deg, #5170ff, #ff66c4); */
+    /* background-color: #435ed6; */
+    background-color: #5a78ff;
+    width: 15rem;
 
 }
 
@@ -64,7 +73,7 @@
     border-bottom: 2px solid rgba(225, 221, 221, 0.293);
 }
 
-.Drawer_icon_sidebar_div p {
+.Drawer_icon_sidebar_div div {
     display: flex;
     margin: 0;
 }
@@ -81,9 +90,39 @@
 .Drawer_icon_sidebar {
     margin: auto;
 }
-.Drawer_text_sidebarIcon{
+
+.Drawer_text_sidebarIcon {
     text-align: center;
-    /* font-weight: 300;
-    font-size: 0.85rem; */
     padding: 0.2rem;
 }
+.subscription_lsdbar{
+    color: white;
+
+}
+.subscription_lsdbar h3{
+    text-decoration: underline;
+    margin: 20px 10px;
+}
+.channel_lsdbar{
+    display: flex;
+    cursor: pointer;
+}
+.channel_lsdbar:hover{
+    color: rgb(77, 77, 243);
+}
+.channel_lsdbar p{
+    border: 1px solid;
+    background-color: gray;
+    padding: 0.5rem;
+    border-radius: 100%;
+    margin: 1rem;
+}
+.channel_lsdbar div{
+    margin: auto;
+    width: 60%;
+
+}
+/* .container3_DrawerLeftSidebar{
+flex-grow: 1;
+background-color: rgb(0, 0, 252);
+} */

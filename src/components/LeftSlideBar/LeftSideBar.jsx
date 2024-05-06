@@ -15,7 +15,7 @@ function LeftSideBar() {
            <NavLink to="/">
            <div className="icon_sidebar_div">
                 <AiOutlineHome size={22} className='icon_sidebar' />
-                <div className="text_sidebar_icon">Home</div>
+                <div className="text_sidebar_icon"><span>Home</span></div>
 
             </div>
            </NavLink>

@@ -6,7 +6,7 @@ import { RiVideoAddLine } from 'react-icons/ri'
 import { IoMdNotificationsOutline } from 'react-icons/io'
 import { BiUserCircle } from 'react-icons/bi'
 
-function Navbar() {
+function Navbar({toggleDrawer}) {
     // const currentUser = null;
     const currentUser = {
         result: {
@@ -15,7 +15,7 @@ function Navbar() {
         }
     }
     return (
-        <div className='container_Navbar'>
+        <div className='container_Navbar' onClick={()=>toggleDrawer()}>
             <div className="Burger_Logo_Navbar">
                 <div className="burger">
                     <p></p>
