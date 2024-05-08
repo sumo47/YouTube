@@ -10,7 +10,7 @@ function DrawerSidebar({ toggleDrawer, toggleDrawerSidebar }) {
         <div className='container_DrawerLeftSidebar' style={toggleDrawerSidebar}>
             <div className="container2_DrawerLeftSidebar">
                 <div className="Drawer_leftSidebar">
-                    <NavLink>
+                    <NavLink to={'/'}>
                         <div className="Drawer_icon_sidebar_div">
                             <div>
                                 <AiOutlineHome size={22} className={"Drawer_icon_sidebar"} style={{ margin: "auto 0.7rem" }} />
