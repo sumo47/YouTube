@@ -25,14 +25,14 @@
     margin: 0;
     font-size: large;
     font-weight: bolder;
-    color: antiquewhite;
+    color: rgb(0, 0, 0);
     display: flex;
     text-align: clip;
 }
 
 .vid_views_UploadTime {
     font-size: small;
-    color: rgba(41, 24, 2, 0.555);
+    color: rgba(4, 0, 255, 0.626);
     margin: 0.2rem;
     display: flex;
 }
