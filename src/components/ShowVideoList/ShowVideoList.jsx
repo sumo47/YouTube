@@ -1,10 +1,9 @@
 import React from 'react'
-import LeftSideBar from '../../components/LeftSlideBar/LeftSideBar'
-import ShowVideoGrid from '../../components/ShowVideoGrid/ShowVideoGrid'
 import vid from '../../components/Video/vid.mp4'
-import './yourVideo.css'
+import ShowVideo from '../ShowVideo.jsx/ShowVideo'
 
-function YourVideo() {
+
+function ShowVideoList({ key, videoId }) {
     const vids = [
         {
             _id: 1,
@@ -51,18 +50,20 @@ function YourVideo() {
             description: "description of video 5"
         },
     ]
-    return (
-        <div className='container_Pages_App'>
-            <LeftSideBar />
-            <div className="container2_pages_App">
-                <div className="container_yourVideo">
-                    <h1>Your Video</h1>
-                </div>
-                <ShowVideoGrid vids={vids} />
-            </div>
 
+    return (
+        <div className='Container_ShowVideoGrid'>
+            {
+                vids?.filter(q => q._id === videoId).map(vi => {
+                    return (
+                        <div key={vi._id} className="video_box_app">
+                            <ShowVideo vid={vi} />
+                        </div>
+                    )
+                })
+            }
         </div>
     )
 }
 
-export default YourVideo
+export default ShowVideoList
