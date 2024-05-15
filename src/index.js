@@ -3,12 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux'
+import { applyMiddleware, compose } from 'redux';
+import { createStore } from 'redux';
+import {thunk} from 'redux-thunk'
+// import {thunkMiddleware} from 'redux-thunk'
+import Reducer from './Reducers/index.js'
 
+// const thunk = require('redux-thunk').default
+
+
+const store = createStore(Reducer, compose(applyMiddleware(thunk)))
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
