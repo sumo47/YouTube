@@ -1,21 +1,42 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Navbar.css'
 import logo from './YOUTUBE.png'
 import SearchBar from './SearchBar/SearchBar'
 import { RiVideoAddLine } from 'react-icons/ri'
 import { IoMdNotificationsOutline } from 'react-icons/io'
 import { BiUserCircle } from 'react-icons/bi'
+import { GoogleLogin } from "react-google-login";
+import { gapi } from 'gapi-script'
 
-function Navbar({toggleDrawer}) {
-    // const currentUser = null;
-    const currentUser = {
-        result: {
-            email: "sumit@gmail.com",
-            joinedOn: "2022-07-15T09:57:23.489Z"
+function Navbar({ toggleDrawer }) {
+    const currentUser = null;
+    // const currentUser = {
+    //     result: {
+    //         email: "sumit@gmail.comresponse
+    //         joinedOn: "2022-07-15T09:57:23.489Z"
+    //     }
+    // };
+
+    useEffect(() => {
+        function start() {
+            gapi.client.init({
+                clientId: "275676399174-b3h7agfuofkjp4h0qlkj86g145dbvmdg.apps.googleusercontent.com",
+                scope: 'email',
+            })
         }
+        gapi.load('client:auth2', start)
+    }, [])
+
+
+    const onSuccess = (response) => {
+        const Email = response?.profileObj.email;
+        console.log(Email)
+    }
+    const onFailure = (response) => {
+        console.log("Failed", response)
     }
     return (
-        <div className='container_Navbar' onClick={()=>toggleDrawer()}>
+        <div className='container_Navbar' onClick={() => toggleDrawer()}>
             <div className="Burger_Logo_Navbar">
                 <div className="burger">
                     <p></p>
@@ -56,6 +77,11 @@ function Navbar({toggleDrawer}) {
                     </div>
                 </>
                 : <div className="Auth_cont_Navbar">
+                    <GoogleLogin
+                        clientId='275676399174-b3h7agfuofkjp4h0qlkj86g145dbvmdg.apps.googleusercontent.com'
+                        onSuccess={onSuccess}
+                        onFailure={onFailure}
+                    />
                     <p className="Auth_Btn"><BiUserCircle size={22} />
                         <b>Sign in</b>
                     </p>
