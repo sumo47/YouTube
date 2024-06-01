@@ -7,16 +7,19 @@ import { IoMdNotificationsOutline } from 'react-icons/io'
 import { BiUserCircle } from 'react-icons/bi'
 import { GoogleLogin } from "react-google-login";
 import { gapi } from 'gapi-script'
+import { login } from '../../actions/auth'
+import { useDispatch, useSelector } from 'react-redux'
 
 function Navbar({ toggleDrawer }) {
-    const currentUser = null;
+    // const currentUser = null;
     // const currentUser = {
     //     result: {
     //         email: "sumit@gmail.comresponse
     //         joinedOn: "2022-07-15T09:57:23.489Z"
     //     }
     // };
-
+    const currentUser = useSelector(state => state.currentUserReducer)
+    console.log(currentUser)
     useEffect(() => {
         function start() {
             gapi.client.init({
@@ -27,14 +30,17 @@ function Navbar({ toggleDrawer }) {
         gapi.load('client:auth2', start)
     }, [])
 
+    const dispatch = useDispatch()
 
     const onSuccess = (response) => {
         const Email = response?.profileObj.email;
-        console.log(Email)
+        console.log(response?.profileObj) //
+        dispatch(login({ email: Email }))
     }
     const onFailure = (response) => {
         console.log("Failed", response)
     }
+
     return (
         <div className='container_Navbar' onClick={() => toggleDrawer()}>
             <div className="Burger_Logo_Navbar">
@@ -81,10 +87,14 @@ function Navbar({ toggleDrawer }) {
                         clientId='275676399174-b3h7agfuofkjp4h0qlkj86g145dbvmdg.apps.googleusercontent.com'
                         onSuccess={onSuccess}
                         onFailure={onFailure}
+                        render={(renderProps) =>
+                        (<p onClick={renderProps.onClick} className="Auth_Btn">
+                            <BiUserCircle size={22} />
+                            <b>Sign in</b>
+                        </p>
+                        )}
                     />
-                    <p className="Auth_Btn"><BiUserCircle size={22} />
-                        <b>Sign in</b>
-                    </p>
+
                 </div>}
         </div>
     )
