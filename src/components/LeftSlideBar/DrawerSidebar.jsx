@@ -5,9 +5,9 @@ import shortIcon from './short.png'
 import { FaHistory } from 'react-icons/fa'
 import { NavLink } from 'react-router-dom'
 
-function DrawerSidebar({ toggleDrawer, toggleDrawerSidebar }) {
+function DrawerSidebar({ toggleDrawer, toggleDrawerSidebar,toggleDrawerClose }) {
     return (
-        <div className='container_DrawerLeftSidebar' style={toggleDrawerSidebar}>
+        <div className='container_DrawerLeftSidebar' style={toggleDrawerSidebar} onClick={()=>toggleDrawerClose()}>
             <div className="container2_DrawerLeftSidebar">
                 <div className="Drawer_leftSidebar">
                     <NavLink to={'/'}>

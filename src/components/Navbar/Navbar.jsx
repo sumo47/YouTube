@@ -45,9 +45,9 @@ function Navbar({ toggleDrawer, setEditCreateChanelBtn }) {
 
     return (
         <>
-            <div className='container_Navbar' onClick={() => toggleDrawer()}>
-                <div className="Burger_Logo_Navbar">
-                    <div className="burger">
+            <div className='container_Navbar' >
+                <div className="Burger_Logo_Navbar" >
+                    <div className="burger" onClick={() => toggleDrawer()}>
                         <p></p>
                         <p></p>
                         <p></p>
@@ -76,7 +76,7 @@ function Navbar({ toggleDrawer, setEditCreateChanelBtn }) {
                 <IoMdNotificationsOutline size={22} className={'vid_bell_Navbar'} />
                 {currentUser ?
                     <>
-                        <div className='channel_logo_App' onClick={()=>setAuthBtn(true)}>
+                        <div className='channel_logo_App' onClick={() => setAuthBtn(true)}>
                             <p className='fstChar_logo_App'>
                                 {currentUser?.result.name ?
                                     (<>{currentUser?.result.name.charAt(0).toUpperCase()}</>)
@@ -101,8 +101,8 @@ function Navbar({ toggleDrawer, setEditCreateChanelBtn }) {
                     </div>}
             </div>
             {
-                AuthBtn && 
-                <Auth setEditCreateChanelBtn={setEditCreateChanelBtn} User={currentUser} setAuthBtn={setAuthBtn}/>
+                AuthBtn &&
+                <Auth setEditCreateChanelBtn={setEditCreateChanelBtn} User={currentUser} setAuthBtn={setAuthBtn} />
             }
         </>
     )

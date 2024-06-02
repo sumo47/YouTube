@@ -20,13 +20,19 @@ function App() {
       })
     }
   }
+  const toggleDrawerClose = ()=>{
+    setToggleDrawerSidebar({
+      display: "none"
+    })
+    setEditCreateChanelBtn(false)
+  }
   const [EditCreateChanelBtn, setEditCreateChanelBtn] = useState(false)
   return (
     <Router>
 
       {EditCreateChanelBtn && <CreateEditChanel  setEditCreateChanelBtn={setEditCreateChanelBtn}/>}
-      <Navbar setEditCreateChanelBtn={setEditCreateChanelBtn} toggleDrawer={toggleDrawer} />
-      <DrawerSidebar toggleDrawer={toggleDrawer} toggleDrawerSidebar={toggleDrawerSidebar} />
+      <Navbar setEditCreateChanelBtn={setEditCreateChanelBtn} toggleDrawer={toggleDrawer} toggleDrawerClose={toggleDrawerClose}/>
+      <DrawerSidebar toggleDrawer={toggleDrawer} toggleDrawerSidebar={toggleDrawerSidebar} toggleDrawerClose={toggleDrawerClose}/>
       <AllRoutes />
     </Router>
 
