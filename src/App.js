@@ -4,6 +4,7 @@ import AllRoutes from './components/AllRoutes';
 import DrawerSidebar from './components/LeftSlideBar/DrawerSidebar';
 import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter as Router } from 'react-router-dom'
+import CreateEditChanel from './pages/Chanel/CreateEditChanel';
 
 function App() {
   const [toggleDrawerSidebar, setToggleDrawerSidebar] = useState({ display: "none" })
@@ -19,9 +20,12 @@ function App() {
       })
     }
   }
+  const [EditCreateChanelBtn, setEditCreateChanelBtn] = useState(false)
   return (
     <Router>
-      <Navbar toggleDrawer={toggleDrawer} />
+
+      {EditCreateChanelBtn && <CreateEditChanel  setEditCreateChanelBtn={setEditCreateChanelBtn}/>}
+      <Navbar setEditCreateChanelBtn={setEditCreateChanelBtn} toggleDrawer={toggleDrawer} />
       <DrawerSidebar toggleDrawer={toggleDrawer} toggleDrawerSidebar={toggleDrawerSidebar} />
       <AllRoutes />
     </Router>

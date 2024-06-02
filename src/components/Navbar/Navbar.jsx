@@ -11,16 +11,16 @@ import { login } from '../../actions/auth'
 import { useDispatch, useSelector } from 'react-redux'
 import Auth from '../../pages/Auth/Auth'
 
-function Navbar({ toggleDrawer }) {
+function Navbar({ toggleDrawer, setEditCreateChanelBtn }) {
     const [AuthBtn, setAuthBtn] = useState(false)
-    // const currentUser = null;
-    const currentUser = {
-        result: {
-            email: "sumokhan76342@gmail.com",
-            joinedOn: "2022-07-15T09:57:23.489Z"
-        }
-    };
-    // const currentUser = useSelector(state => state.currentUserReducer)
+    // const currentUser = null;/
+    // const currentUser = {
+    //     result: {
+    //         email: "sumokhan76342@gmail.com",
+    //         joinedOn: "2022-07-15T09:57:23.489Z"
+    //     }
+    // };
+    const currentUser = useSelector(state => state.currentUserReducer)
     console.log(currentUser)
     useEffect(() => {
         function start() {
@@ -102,7 +102,7 @@ function Navbar({ toggleDrawer }) {
             </div>
             {
                 AuthBtn && 
-                <Auth User={currentUser} setAuthBtn={setAuthBtn}/>
+                <Auth setEditCreateChanelBtn={setEditCreateChanelBtn} User={currentUser} setAuthBtn={setAuthBtn}/>
             }
         </>
     )

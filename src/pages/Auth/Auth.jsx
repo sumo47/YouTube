@@ -5,14 +5,14 @@ import { BiLogOut } from 'react-icons/bi'
 import { useDispatch } from 'react-redux'
 import { setCurrentUser } from '../../actions/currentUser'
 
-function Auth({ User , setAuthBtn}) {
+function Auth({ User, setAuthBtn, setEditCreateChanelBtn }) {
     const dispatch = useDispatch()
     const onLogoutSuccess = () => {
         dispatch(setCurrentUser(null))
         alert('Logout SuccessFully')
     }
     return (
-        <div className='Auth_container' onClick={()=> setAuthBtn(false)}>
+        <div className='Auth_container' onClick={() => setAuthBtn(false)}>
             <div className="Auth_container2">
                 <p className="User_Details">
                     <div className="Chanel_logo_App">
@@ -27,14 +27,14 @@ function Auth({ User , setAuthBtn}) {
                     <div className="email_Auth">{User?.result.email}</div>
                 </p>
                 <div className="btns_Auth">
-                    <input type="submit" className='btn_Auth' value="Create Your Channel" />
+                    {User?.result.name ? <><input type="submit" className='btn_Auth' value="Your Channel" onClick={() => setEditCreateChanelBtn(true)} /></> : <><input type="submit" className='btn_Auth' value="Create Your Channel" onClick={() => setEditCreateChanelBtn(true)} /></>}
                     <div>
                         <GoogleLogout
                             clientId='275676399174-b3h7agfuofkjp4h0qlkj86g145dbvmdg.apps.googleusercontent.com'
                             onLogoutSuccess={onLogoutSuccess}
                             render={(renderProps) => (
                                 <div onClick={renderProps.onClick} className='btn_Auth'>
-                                    <BiLogOut size={22} />
+                                    <BiLogOut />
                                     Log Out
                                 </div>
                             )}
