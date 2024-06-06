@@ -7,10 +7,8 @@ import { Provider } from 'react-redux'
 import { applyMiddleware, compose } from 'redux';
 import { createStore } from 'redux';
 import {thunk} from 'redux-thunk'
-// import {thunkMiddleware} from 'redux-thunk'
 import Reducer from './Reducers/index.js'
 
-// const thunk = require('redux-thunk').default
 
 
 const store = createStore(Reducer, compose(applyMiddleware(thunk)))

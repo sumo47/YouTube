@@ -1,12 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import AllRoutes from './components/AllRoutes';
 import DrawerSidebar from './components/LeftSlideBar/DrawerSidebar';
 import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter as Router } from 'react-router-dom'
 import CreateEditChanel from './pages/Chanel/CreateEditChanel';
+import { useDispatch } from 'react-redux';
+import { fetchAllChanel } from './actions/chanelUser';
 
 function App() {
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchAllChanel())
+  }, [dispatch])
+
+
+
   const [toggleDrawerSidebar, setToggleDrawerSidebar] = useState({ display: "none" })
 
   const toggleDrawer = () => {
@@ -20,7 +30,7 @@ function App() {
       })
     }
   }
-  const toggleDrawerClose = ()=>{
+  const toggleDrawerClose = () => {
     setToggleDrawerSidebar({
       display: "none"
     })
@@ -30,10 +40,10 @@ function App() {
   return (
     <Router>
 
-      {EditCreateChanelBtn && <CreateEditChanel  setEditCreateChanelBtn={setEditCreateChanelBtn}/>}
-      <Navbar setEditCreateChanelBtn={setEditCreateChanelBtn} toggleDrawer={toggleDrawer} toggleDrawerClose={toggleDrawerClose}/>
-      <DrawerSidebar toggleDrawer={toggleDrawer} toggleDrawerSidebar={toggleDrawerSidebar} toggleDrawerClose={toggleDrawerClose}/>
-      <AllRoutes />
+      {EditCreateChanelBtn && <CreateEditChanel setEditCreateChanelBtn={setEditCreateChanelBtn} />}
+      <Navbar setEditCreateChanelBtn={setEditCreateChanelBtn} toggleDrawer={toggleDrawer} toggleDrawerClose={toggleDrawerClose} />
+      <DrawerSidebar toggleDrawer={toggleDrawer} toggleDrawerSidebar={toggleDrawerSidebar} toggleDrawerClose={toggleDrawerClose} />
+      <AllRoutes setEditCreateChanelBtn={setEditCreateChanelBtn} />
     </Router>
 
   );
