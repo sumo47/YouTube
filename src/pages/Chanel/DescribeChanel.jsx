@@ -9,7 +9,7 @@ function DescribeChanel({ setEditCreateChanelBtn, Cid }) {
     // console.log(chanels)
     const currentChanel = chanels.filter(c => c._id === Cid)[0]
     // console.log(currentChanel)
-    const currentUser = useSelector(state => state.currentUserReducer)
+    const currentUser = useSelector(state => state?.currentUserReducer)
     return (
         <div className='container3_chanel'>
             <div className="chanel_logo_chanel">

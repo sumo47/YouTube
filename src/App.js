@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import CreateEditChanel from './pages/Chanel/CreateEditChanel';
 import { useDispatch } from 'react-redux';
 import { fetchAllChanel } from './actions/chanelUser';
+import VideoUpload from './pages/VideoUpload/VideoUpload';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
   const [EditCreateChanelBtn, setEditCreateChanelBtn] = useState(false)
   return (
     <Router>
+      <VideoUpload />
 
       {EditCreateChanelBtn && <CreateEditChanel setEditCreateChanelBtn={setEditCreateChanelBtn} />}
       <Navbar setEditCreateChanelBtn={setEditCreateChanelBtn} toggleDrawer={toggleDrawer} toggleDrawerClose={toggleDrawerClose} />
