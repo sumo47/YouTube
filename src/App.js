@@ -37,15 +37,19 @@ function App() {
     })
     setEditCreateChanelBtn(false)
   }
+  const [vidUploadPage, setVidUploadPage] = useState(false)
   const [EditCreateChanelBtn, setEditCreateChanelBtn] = useState(false)
   return (
     <Router>
-      <VideoUpload />
 
+      {vidUploadPage && <VideoUpload setVidUploadPage={setVidUploadPage} />}
       {EditCreateChanelBtn && <CreateEditChanel setEditCreateChanelBtn={setEditCreateChanelBtn} />}
+
       <Navbar setEditCreateChanelBtn={setEditCreateChanelBtn} toggleDrawer={toggleDrawer} toggleDrawerClose={toggleDrawerClose} />
       <DrawerSidebar toggleDrawer={toggleDrawer} toggleDrawerSidebar={toggleDrawerSidebar} toggleDrawerClose={toggleDrawerClose} />
-      <AllRoutes setEditCreateChanelBtn={setEditCreateChanelBtn} />
+
+      <AllRoutes setVidUploadPage={setVidUploadPage} setEditCreateChanelBtn={setEditCreateChanelBtn} />
+
     </Router>
 
   );
