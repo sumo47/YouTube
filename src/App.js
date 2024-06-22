@@ -8,15 +8,15 @@ import CreateEditChanel from './pages/Chanel/CreateEditChanel';
 import { useDispatch } from 'react-redux';
 import { fetchAllChanel } from './actions/chanelUser';
 import VideoUpload from './pages/VideoUpload/VideoUpload';
+import { getAllVideo } from './actions/video';
 
 function App() {
 
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchAllChanel())
+    dispatch(getAllVideo())
   }, [dispatch])
-
-
 
   const [toggleDrawerSidebar, setToggleDrawerSidebar] = useState({ display: "none" })
 

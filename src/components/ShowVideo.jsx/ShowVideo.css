@@ -31,7 +31,7 @@
 }
 
 .vid_views_UploadTime {
-    font-size: small;
+    font-size: medium;
     color: rgba(4, 0, 255, 0.626);
     margin: 0.2rem;
     display: flex;

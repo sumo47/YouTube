@@ -24,7 +24,7 @@ function VideoUpload({ setVidUploadPage }) {
       setProgress(percentage)
       if (percentage === 100) {
         setTimeout(function () { }, 3000)
-
+        setVidUploadPage(false)
       }
     }
   }
@@ -41,7 +41,7 @@ function VideoUpload({ setVidUploadPage }) {
       fileData.append("file", videoFile)
       fileData.append("title", title)
       fileData.append("chanel", currentUser?.result._id)
-      fileData.append("uploader", currentUser?.result.name)
+      fileData.append("Uploder", currentUser?.result.name)
 
       // console.log(videoFile)
 

@@ -10,6 +10,7 @@ import { gapi } from 'gapi-script'
 import { login } from '../../actions/auth'
 import { useDispatch, useSelector } from 'react-redux'
 import Auth from '../../pages/Auth/Auth'
+import { Link } from 'react-router-dom'
 
 function Navbar({ toggleDrawer, setEditCreateChanelBtn }) {
     const [AuthBtn, setAuthBtn] = useState(false)
@@ -52,10 +53,10 @@ function Navbar({ toggleDrawer, setEditCreateChanelBtn }) {
                         <p></p>
                         <p></p>
                     </div>
-                    <div className='logo_div_Navbar'>
+                    <Link to={'/'} className='logo_div_Navbar'>
                         <img src={logo} alt="" />
                         <p className='logo_title_Navbar'>YouTube</p>
-                    </div>
+                    </Link>
                 </div>
                 <SearchBar />
                 <RiVideoAddLine size={22} className={"vid_bell_Navbar"} />

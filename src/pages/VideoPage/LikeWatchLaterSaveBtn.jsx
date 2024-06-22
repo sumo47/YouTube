@@ -4,6 +4,8 @@ import './LikeWatchLaterSaveBtn.css'
 import { MdPlaylistAddCheck } from 'react-icons/md'
 import { RiHeartAddFill, RiPlayListAddFill, RiShareForwardLine } from 'react-icons/ri'
 import { AiFillDislike, AiFillLike, AiOutlineDislike, AiOutlineLike } from 'react-icons/ai'
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 
 function LikeWatchLaterSaveBtn() {
     const [saveVideo, setSaveVideo] = useState(false)
@@ -13,6 +15,10 @@ function LikeWatchLaterSaveBtn() {
     const toggleSavedVideo = () => { saveVideo ? setSaveVideo(false) : setSaveVideo(true) }
     const toggleDislike = () => { Dislike ? SetDislike(false) : SetDislike(true); setLikebtn(false) }
     const toggleLikeBtn = () => { Likebtn ? setLikebtn(false) : setLikebtn(true); SetDislike(false) }
+
+    const { vid } = useParams()
+    const vids = useSelector(state => state.videoReducer)
+    const vv = vids?.data.filter(q => q._id === vid)[0] //filter return array
 
     return (
         <div className='btns_cont_videoPage'>
@@ -26,7 +32,8 @@ function LikeWatchLaterSaveBtn() {
                         :
                         <AiOutlineLike size={22} className="btns_videoPage" />
                     }
-                    <b>1</b>
+                    <b>{vv?.Like}</b>
+
                 </div>
                 <div className="like_videoPage" onClick={() => { toggleDislike() }}>
                     {Dislike ?
