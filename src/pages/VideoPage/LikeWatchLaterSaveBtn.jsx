@@ -4,47 +4,63 @@ import './LikeWatchLaterSaveBtn.css'
 import { MdPlaylistAddCheck } from 'react-icons/md'
 import { RiHeartAddFill, RiPlayListAddFill, RiShareForwardLine } from 'react-icons/ri'
 import { AiFillDislike, AiFillLike, AiOutlineDislike, AiOutlineLike } from 'react-icons/ai'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { likeVideo } from '../../actions/video'
+import { addToLikedVideo } from '../../api'
 // import { useSelector } from 'react-redux'
 // import { useParams } from 'react-router-dom'
 
 function LikeWatchLaterSaveBtn({ vv, vid }) {
     // console.log(vv.Like+1)
     // console.log("added"+vv.Like)
+    const currentUser = useSelector(state => state.currentUserReducer)
     const dispatch = useDispatch()
     const [saveVideo, setSaveVideo] = useState(false)
     const [Dislike, SetDislike] = useState(false)
     const [Likebtn, setLikebtn] = useState(false)
 
+
     const toggleSavedVideo = () => { saveVideo ? setSaveVideo(false) : setSaveVideo(true) }
 
     const toggleLikeBtn = (e, lk) => {
-        if (Likebtn) {
-            setLikebtn(false)
-            dispatch(likeVideo({
-                id: vid,
-                Like: lk - 1
-            }))
+        if (currentUser) {
+            if (Likebtn) {
+                setLikebtn(false)
+                dispatch(likeVideo({
+                    id: vid,
+                    Like: lk - 1
+                }))
+            } else {
+                setLikebtn(true)
+                dispatch(likeVideo({
+                    id: vid,
+                    Like: lk + 1
+                }))
+                dispatch(
+                    addToLikedVideo({
+                        videoId: vid,
+                        Viewer: currentUser?.result._id,
+                    }))
+                SetDislike(false)
+            }
         } else {
-            setLikebtn(true)
-            dispatch(likeVideo({
-                id: vid,
-                Like: lk + 1
-            }))
-            SetDislike(false)
+            alert("Please Login first to Give Like!")
         }
     }
     const toggleDislike = (e, lk) => {
-        if (Dislike) {
-            SetDislike(false)
+        if (currentUser) {
+            if (Dislike) {
+                SetDislike(false)
+            } else {
+                SetDislike(true)
+                dispatch(likeVideo({
+                    id: vid,
+                    Like: lk === 0 ? lk = 0 : lk - 1 // Like:lk-1
+                }))
+                setLikebtn(false)
+            }
         } else {
-            SetDislike(true)
-            dispatch(likeVideo({
-                id: vid,
-                Like: lk === 0 ? lk = 0 : lk - 1 // Like:lk-1
-            }))
-            setLikebtn(false)
+            alert("Please Login first to Dislike!")
         }
     }
 
