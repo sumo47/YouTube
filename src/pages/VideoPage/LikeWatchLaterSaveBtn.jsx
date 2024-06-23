@@ -4,21 +4,53 @@ import './LikeWatchLaterSaveBtn.css'
 import { MdPlaylistAddCheck } from 'react-icons/md'
 import { RiHeartAddFill, RiPlayListAddFill, RiShareForwardLine } from 'react-icons/ri'
 import { AiFillDislike, AiFillLike, AiOutlineDislike, AiOutlineLike } from 'react-icons/ai'
-import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { likeVideo } from '../../actions/video'
+// import { useSelector } from 'react-redux'
+// import { useParams } from 'react-router-dom'
 
-function LikeWatchLaterSaveBtn() {
+function LikeWatchLaterSaveBtn({ vv, vid }) {
+    // console.log(vv.Like+1)
+    // console.log("added"+vv.Like)
+    const dispatch = useDispatch()
     const [saveVideo, setSaveVideo] = useState(false)
     const [Dislike, SetDislike] = useState(false)
     const [Likebtn, setLikebtn] = useState(false)
 
     const toggleSavedVideo = () => { saveVideo ? setSaveVideo(false) : setSaveVideo(true) }
-    const toggleDislike = () => { Dislike ? SetDislike(false) : SetDislike(true); setLikebtn(false) }
-    const toggleLikeBtn = () => { Likebtn ? setLikebtn(false) : setLikebtn(true); SetDislike(false) }
 
-    const { vid } = useParams()
-    const vids = useSelector(state => state.videoReducer)
-    const vv = vids?.data.filter(q => q._id === vid)[0] //filter return array
+    const toggleLikeBtn = (e, lk) => {
+        if (Likebtn) {
+            setLikebtn(false)
+            dispatch(likeVideo({
+                id: vid,
+                Like: lk - 1
+            }))
+        } else {
+            setLikebtn(true)
+            dispatch(likeVideo({
+                id: vid,
+                Like: lk + 1
+            }))
+            SetDislike(false)
+        }
+    }
+    const toggleDislike = (e, lk) => {
+        if (Dislike) {
+            SetDislike(false)
+        } else {
+            SetDislike(true)
+            dispatch(likeVideo({
+                id: vid,
+                Like: lk === 0 ? lk = 0 : lk - 1 // Like:lk-1
+            }))
+            setLikebtn(false)
+        }
+    }
+
+    // const { vid } = useParams()
+    // const vids = useSelector(state => state.videoReducer)
+    // const vv = vids?.data.filter(q => q._id === vid)[0] //filter return array
 
     return (
         <div className='btns_cont_videoPage'>
@@ -26,7 +58,7 @@ function LikeWatchLaterSaveBtn() {
                 <BsThreeDots />
             </div>
             <div className="btn_VideoPage">
-                <div className="like_videoPage" onClick={() => { toggleLikeBtn() }}>
+                <div className="like_videoPage" onClick={(e) => { toggleLikeBtn(e, vv.Like) }}>
                     {Likebtn ?
                         <AiFillLike size={22} className="btns_videoPage" />
                         :
@@ -35,7 +67,7 @@ function LikeWatchLaterSaveBtn() {
                     <b>{vv?.Like}</b>
 
                 </div>
-                <div className="like_videoPage" onClick={() => { toggleDislike() }}>
+                <div className="like_videoPage" onClick={(e) => { toggleDislike(e, vv.Like) }}>
                     {Dislike ?
                         <AiFillDislike size={22} className="btns_videoPage" />
                         :

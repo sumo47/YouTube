@@ -29,7 +29,7 @@ function VideoPage() {
                                 <div className="views_videopage">
                                     {vv?.Views} views <div className="dot"></div> {moment(vv?.createdAt).fromNow()}
                                 </div>
-                                <LikeWatchLaterSaveBtn />
+                                <LikeWatchLaterSaveBtn vv={vv} vid={vid}/>
                             </div>
                         </div>
                         <Link to={`/chanel/${vv?.videoChanel}`} className="chanel_details_videoPage">
