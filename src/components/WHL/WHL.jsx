@@ -2,8 +2,10 @@ import React from 'react'
 import LeftSideBar from '../LeftSlideBar/LeftSideBar'
 import './WHLcss.css'
 import WHLVideoList from './WHLVideoList'
+import { useSelector } from 'react-redux'
 
 function WHL({ page, videoList }) {
+  const currentUser = useSelector((state)=>state?.currentUserReducer)
   return (
     <div className='container_Pages_App'>
       <LeftSideBar />
@@ -20,7 +22,9 @@ function WHL({ page, videoList }) {
           <div className="rightSide_whl">
             <h1>{page}</h1>
             <div className="whl_list">
-              <WHLVideoList page={page} videoList={videoList} />
+              <WHLVideoList page={page}
+              currentUser = {currentUser?.result._id}
+               videoList={videoList} />
             </div>
           </div>
         </p>

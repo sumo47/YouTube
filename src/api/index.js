@@ -20,3 +20,5 @@ export const uploadVideo = (fileData, fileOptions) => API.post('/video/uploadVid
 export const getVideos = () => API.get('/video/getvideos')
 export const likeVideo = (id, Like) => API.patch(`/video/like/${id}`, { Like });
 export const addToLikedVideo = (likedVideoData) => API.post('/video/likeVideo', likedVideoData)
+
+export const getAllLikedVideo = () => API.get('/video/getAllLikeVideo') 

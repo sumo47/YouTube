@@ -12,7 +12,7 @@ function VideoPage() {
     // console.log(vid)
     const vids = useSelector(state => state.videoReducer);
     const vv = vids?.data.filter(q => q._id === vid)[0];
-    console.log(vv)
+    // console.log(vv)
     return (
         <div className='container_videoPage'>
             <div className="container2_videopage">

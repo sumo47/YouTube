@@ -15,6 +15,8 @@ export const uploadVideo = (videoData) => async (dispatch) => {
 export const getAllVideo = () => async (dispatch) => {
   try {
     const { data } = await api.getVideos()
+    // const {liked} = await api.getAllLikedVideo()
+    // console.log("All :", liked)
     dispatch({ type: "FETCH_ALL_VIDEOS", payload: data })
   }
   catch (error) {

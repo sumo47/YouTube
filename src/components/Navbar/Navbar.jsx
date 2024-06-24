@@ -22,7 +22,7 @@ function Navbar({ toggleDrawer, setEditCreateChanelBtn }) {
     //     }
     // };
     const currentUser = useSelector(state => state.currentUserReducer)
-    console.log(currentUser)
+    // console.log(currentUser)
     useEffect(() => {
         function start() {
             gapi.client.init({
@@ -37,7 +37,7 @@ function Navbar({ toggleDrawer, setEditCreateChanelBtn }) {
 
     const onSuccess = (response) => {
         const Email = response?.profileObj.email;
-        console.log(response?.profileObj) //
+        // console.log(response?.profileObj) //
         dispatch(login({ email: Email }))
     }
     const onFailure = (response) => {

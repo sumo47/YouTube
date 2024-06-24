@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { fetchAllChanel } from './actions/chanelUser';
 import VideoUpload from './pages/VideoUpload/VideoUpload';
 import { getAllVideo } from './actions/video';
+import { getAllLikedVideo } from './actions/likedVideo.js';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchAllChanel())
     dispatch(getAllVideo())
+    dispatch(getAllLikedVideo())
   }, [dispatch])
 
   const [toggleDrawerSidebar, setToggleDrawerSidebar] = useState({ display: "none" })

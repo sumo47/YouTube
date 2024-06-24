@@ -6,8 +6,8 @@ import ShowVideoGrid from '../../components/ShowVideoGrid/ShowVideoGrid'
 // import vid from '../../components/Video/vid.mp4'
 
 function Home() {
-    const vids = useSelector(state=>state.videoReducer)?.data;
-    console.log(vids)
+    const vids = useSelector(state=>state.videoReducer)?.data?.filter(q=>q).reverse();
+    // console.log(vids)
 
     // const vids = [
     //     {
